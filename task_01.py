@@ -1,4 +1,6 @@
-print('hello again')
-print('new text')
-print('hello again')
-print('oooops')
+
+print('new line', end='\n\n\n')
+print(5<6)
+help(print)
+
+
