@@ -1,4 +1,4 @@
-def make_operation(operator, *args):
+def make_operation(operator: str, *args: int) -> int:
     result = 0
     if operator == '+':
         for num in args:

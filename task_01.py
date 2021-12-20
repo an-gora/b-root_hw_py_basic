@@ -18,7 +18,7 @@ custom_print(1,2,3,4,5,6,6,7,8,9)
 def custom_print(**kwargs):
     print(f'print got {len(kwargs)} inside args tiple:', kwargs)
 custom_print(name='bathman', enemy='jocker')
-'''
+
 
 x = 11111
 
@@ -57,3 +57,4 @@ def test5(x):
 
 x = test5(x)
 print(x)
+'''

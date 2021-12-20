@@ -1,4 +1,4 @@
-def make_country(name, capital):
+def make_country(name: str, capital: str) -> {}:
     coutries = {}
     coutries['name'] = name
     coutries['capital'] = capital

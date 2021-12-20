@@ -1,4 +1,4 @@
-def favourite_movie(movie):
+def favourite_movie(movie: str):
     print('my favourite movie is ', movie)
 
 
