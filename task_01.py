@@ -1,5 +1,6 @@
-print('new line', end='\n\n\n')
-print(5 < 6)
-print(5>1)
+def favourite_car(car, color):
+    print('car is ' + color + ' ' + car)
 
 
+favourite_car(color='volvo', car='red')
+favourite_car('mers', 'white')
