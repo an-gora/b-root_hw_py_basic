@@ -57,4 +57,11 @@ def test5(x):
 
 x = test5(x)
 print(x)
+
+
+print (2**2)
+print(11/2)
+print(abs(-1))
+print(type(1))
+print(round(5.455555,2))
 '''
