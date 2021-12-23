@@ -1,5 +1,6 @@
-def favourite_movie(movie: str):
-    print('my favourite movie is ', movie)
+def favourite_movie(movie: str) -> str:
+    return (f'my favourite movie is {movie}')
 
 
-favourite_movie('mask')
+if __name__ == '__main__':
+    print(favourite_movie('mask'))
