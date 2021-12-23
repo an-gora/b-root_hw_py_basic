@@ -98,5 +98,3 @@
 # name = 'Dostoyevsky'
 # lenght_of_name = len(name)
 # print(lenght_of_name)
-
-print(True or True)
