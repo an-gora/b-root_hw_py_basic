@@ -99,21 +99,49 @@
 # lenght_of_name = len(name)
 # print(lenght_of_name)
 
-import random
+# import random
+#
+# print('lets play')
+# player = input('choose r s or p ')
+#
+# if player == 'r' or player == 'p' or player == 's':
+#     computer = random.randint(1, 3)
+#     if (computer == 1 and player == 'r' or computer == 2 and
+#             player == 'p' or computer == 3 and player == 's'):
+#         print('it is draw')
+#     elif (computer == 1 and player == 'p' or
+#           computer == 2 and player == 's' or
+#           computer == 3 and player == 'r'):
+#         print("cong, you win")
+#     else:
+#         print('you lost')
+# else:
+#     print('wrong format')
+# from random import random
+#
+# print([int(1./random.random()) for i in range(10)])
 
-print('lets play')
-player = input('choose r s or p ')
+# import random
+#
+# slovo = 'Привет'
+# slovo_list = list(slovo)
+# abrakadabra = random.sample(slovo_list,  len(slovo_list))
+#
+# print(abrakadabra)
 
-if player == 'r' or player == 'p' or player == 's':
-    computer = random.randint(1, 3)
-    if (computer == 1 and player == 'r' or computer == 2 and
-            player == 'p' or computer == 3 and player == 's'):
-        print('it is draw')
-    elif (computer == 1 and player == 'p' or
-          computer == 2 and player == 's' or
-          computer == 3 and player == 'r'):
-        print("cong, you win")
-    else:
-        print('you lost')
-else:
-    print('wrong format')
+a = 'apples'
+b = 'pears'
+c = ['grapes', 'bananas', 'kiwis']
+
+
+def convert(a):
+    if type(a) == list:
+        return a
+    elif type(a) == str:
+        return [a]
+
+
+d = []
+for i in [a, b, c]:
+    d.extend(convert(i))
+print(d)
