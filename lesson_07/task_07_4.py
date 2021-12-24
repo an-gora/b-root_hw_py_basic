@@ -7,6 +7,8 @@ from typing import TypeAlias
 T_MY_EXPRESSION: TypeAlias = float | int | str
 
 
+# обработать исключения - когда операция не распознана
+
 def math_expression(first_digit, second_digit, operation: T_MY_EXPRESSION, result=None):
     result
     expression = str(first_digit) + operation + str(second_digit)
@@ -32,4 +34,4 @@ def math_quiz(my_list) -> str:
 
 
 if __name__ == '__main__':
-    print(math_quiz(math_expression(5, 4, '+')))
+    print(math_quiz(math_expression(47, 5, '*')))
