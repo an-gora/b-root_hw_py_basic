@@ -3,14 +3,14 @@
 import random
 
 
-def greatest_number():
+def greatest_number() -> int:
     i = 10
     list_of_random_numbers = []
     while i > 0:
         random_number = random.randint(1, 10)
         list_of_random_numbers.append(random_number)
         i -= 1
-    return max(list_of_random_numbers)
+    return f'the greatest number from list is {max(list_of_random_numbers)}'
 
 
 if __name__ == '__main__':
