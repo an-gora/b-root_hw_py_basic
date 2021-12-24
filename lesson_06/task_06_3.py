@@ -8,7 +8,7 @@
 
 def is_name_same() -> bool:
     stored_name = 'staci'
-    input_name = input().lower()
+    input_name = input('please insert name: ').lower()
     if stored_name == input_name:
         return True
     else:
