@@ -11,4 +11,4 @@ def work_with_given_string(data: str) -> str:
 
 
 if __name__ == '__main__':
-    print(work_with_given_string('my'))
+    print(work_with_given_string('myniygb'))
