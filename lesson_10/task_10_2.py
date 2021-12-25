@@ -4,7 +4,7 @@ def total_price(stock: dict, prices: dict) -> float:
     #     if stock.key() == prices.key():
     #         total_price_in_market = total_price_in_market + stock.get(key) * prices.get(key)
     for key in stock.keys():
-        if key
+        if key in prices:
 
     return total_price_in_market
 
