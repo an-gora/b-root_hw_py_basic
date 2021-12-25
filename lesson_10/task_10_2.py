@@ -1,8 +1,11 @@
 def total_price(stock: dict, prices: dict) -> float:
     total_price_in_market = 0
-    for key, value in stock.items(), prices.items():
-        if stock.key() == prices.key():
-            total_price_in_market = total_price_in_market + stock.get(key) * prices.get(key)
+    # for key, value in zip(stock.items(), prices.items()):
+    #     if stock.key() == prices.key():
+    #         total_price_in_market = total_price_in_market + stock.get(key) * prices.get(key)
+    for key in stock.keys():
+        if key
+
     return total_price_in_market
 
 

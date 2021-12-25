@@ -3,11 +3,22 @@
 # # “Hello <name>, on your next birthday you’ll
 # be <age+1> years”
 
-def greetings() -> str:
+def user_data() -> tuple[str, int]:
     name = input('what is your name? ')
     age = int(input('how old are you? '))
-    return f'Hello, {name}, on your next birthday you will be {age + 1} years'
+    # return f'Hello, {name}, on your next birthday you will be {age + 1} years'
+    return name, int(age)
+
+
+def gr_print(name, age) -> str:
+    print(f'Hello, {name}, on your next birthday you will be {age + 1} years')
+
+
+def main():
+    name, age = user_data()
+    gr_print(name, age)
+    return gr_print
 
 
 if __name__ == '__main__':
-    print(greetings())
+    main()
