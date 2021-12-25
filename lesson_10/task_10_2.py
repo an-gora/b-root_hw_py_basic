@@ -1,4 +1,4 @@
-def total_price(stock: dict, prices: dict) -> int:
+def total_price(stock: dict, prices: dict) -> float:
     total_price_in_market = 0
     for key, value in stock.items(), prices.items():
         if stock.key() == prices.key():

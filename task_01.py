@@ -162,11 +162,38 @@
 # # random_number = random.randint(1, 10)
 # # print(random_number)
 
-x = 0
-y = (0,)
+# x = 0
+# y = (0,)
+#
+# print(list(range(-10, 0, 1)))
+#
+# l = [1, 2, 3]
+# for i in range(len(l)):
+#     print(l[i])
 
-print(list(range(-10, 0, 1)))
+# username = input('name')
+#
+# with open('user_info.txt', 'w') as file_object:
+#     file_object.write(username)
 
-l = [1, 2, 3]
-for i in range(len(l)):
-    print(l[i])
+
+# with open('user_info.txt') as file_object:
+#     username = file_object.read()
+#
+# print('hello ' + username)
+
+# import json
+# stock = {}
+# stock={"banana": 6, "apple": 0, "orange": 32, "pear": 15}
+# # prices={"banana": 4, "apple": 2, "orange": 1.5, "pear": 3}
+#
+# with open('stock.json', 'w') as file_object:
+#     json.dump(stock, file_object)
+
+import json
+
+with open('stock.json') as file_object:
+    stock = json.load(file_object)
+
+for k, v in stock.items():
+    print(k, ':', v)
