@@ -5,11 +5,16 @@
 def unique_dictionary() -> dict:
     sentence = input('write some sentence: ')
     list_of_words = sentence.split(' ')
-    my_dict = {}
-    unique_set = set(list_of_words)
-
-    return unique_set
+    unique_set = list(set(list_of_words))
+    my_dict = dict()
+    counter = 0
+    for word in unique_set:
+        counter = list_of_words.count(word)
+        my_dict.update({word: counter})
+    return my_dict
 
 
 if __name__ == '__main__':
     print(unique_dictionary())
+
+# very very new new tree
