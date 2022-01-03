@@ -29,8 +29,28 @@ movies_and_users = {
                }
 }
 
-for movie, movieinfo in list_of_media.items():
-    print({movie})
-    title = movieinfo['title']
-    year = movieinfo['year']
-    print(f'инфо про фильм {movie}: название {title}, выпущен в {year} году')
+
+# for movie, movieinfo in list_of_media.items():
+#     print({movie})
+#     title = movieinfo['title']
+#     year = movieinfo['year']
+#     print(f'инфо про фильм {movie}: название {title}, выпущен в {year} году')
+
+
+def filter_by_name():
+    mymovie = input('what movie are you looking for? ')
+    for movie, movieinfo in list_of_media.items():
+        if movieinfo['title'] == mymovie:
+            year = movieinfo['year']
+            genre = movieinfo['genre']
+            rating = movieinfo['rating']
+            print(f'Here is info about movie {mymovie}: \n'
+                  f'released at {year}\n'
+                  f'genre is {genre}\n'
+                  f'rating is {rating}')
+            break
+        else:
+            print(f'hhhmmmm...seems here is no movie with name {movie}')
+
+
+filter_by_name()
