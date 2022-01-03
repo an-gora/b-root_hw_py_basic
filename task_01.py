@@ -189,11 +189,35 @@
 #
 # with open('stock.json', 'w') as file_object:
 #     json.dump(stock, file_object)
+#
+# import json
+#
+# with open('stock.json') as file_object:
+#     stock = json.load(file_object)
+#
+# for k, v in stock.items():
+#     print(k, ':', v)
 
-import json
 
-with open('stock.json') as file_object:
-    stock = json.load(file_object)
+def make_operation(operator: str, *args: int) -> int:
+    result = 0
+    if operator == "+":
+        for num in args:
+            result += num
+            return result
+    elif operator == "-":
+        for num in args:
+            result -= num
+            return result
+    elif operator == "*":
+        result = 1
+        for num in args:
+            result = result * num
+            return result
 
-for k, v in stock.items():
-    print(k, ':', v)
+    else:
+        print("wrong value")
+
+
+if __name__ == "__main__":
+    print(make_operation("*", 98, 34, 67, 98, 67))

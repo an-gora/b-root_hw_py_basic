@@ -44,7 +44,7 @@ import random
 import random
 
 
-def random_list(my_word: str, list_of_words=None) -> list[str]:
+def random_list(my_word: str) -> list[str]:
     i = 5
     list_of_letters = list(my_word)
     list_of_words = []
