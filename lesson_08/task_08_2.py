@@ -7,15 +7,12 @@
 
 
 def catch_me_if_you_can():
-    a = int(input('set a: '))
-    b = int(input('set b '))
     try:
+        a = int(input('set a: '))
+        b = int(input('set b '))
         a * a / b
     except ValueError:
         return 'values given by the input function are not numbers'
-
-    try:
-        a * a / b
     except ZeroDivisionError:
         return 'division on 0 is impossible'
 
