@@ -3,3 +3,17 @@
 # Then write another function that calls oops inside
 # a try/except state­ment to catch the error. What happens
 # if you change oops to raise KeyError instead of IndexError?
+
+def oops():
+    raise IndexError()
+
+
+def catch_oops():
+    try:
+        oops()
+    # except IndexError:
+    except KeyErrorError:
+        print('done!')
+
+
+catch_oops()

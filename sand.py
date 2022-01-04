@@ -221,3 +221,4 @@ def make_operation(operator: str, *args: int) -> int:
 
 if __name__ == "__main__":
     print(make_operation("*", 98, 34, 67, 98, 67))
+
