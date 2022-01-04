@@ -6,13 +6,13 @@
 
 def oops():
     raise IndexError()
+    # raise KeyError()
 
 
 def catch_oops():
     try:
         oops()
-    # except IndexError:
-    except KeyErrorError:
+    except IndexError:
         print('done!')
 
 
