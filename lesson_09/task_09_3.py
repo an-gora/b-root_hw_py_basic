@@ -5,7 +5,7 @@
 # Constraint: use only while loop for iteration
 
 def extracting_numbers() -> list[int]:
-    all_integer_list = list(range(1, 100, 1))
+    all_integer_list = list(range(1, 100))
     range_len = len(all_integer_list)
     separate_list = []
     i = 0
@@ -16,5 +16,9 @@ def extracting_numbers() -> list[int]:
     return separate_list
 
 
+def print_result(my_list):
+    print(my_list)
+
+
 if __name__ == '__main__':
-    print(extracting_numbers())
+    print_result(extracting_numbers())
