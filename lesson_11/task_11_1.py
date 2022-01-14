@@ -6,7 +6,7 @@
 # the system command line.
 
 
-say_greetings = 'hello file world!'
+say_greetings = 'hello file world'
 with open('myfile.txt', 'w') as file_object:
     file_object.write(say_greetings)
 
@@ -14,3 +14,12 @@ with open('myfile.txt', 'r') as file_object:
     greetings = file_object.readline()
 
 print(greetings)
+
+# username = input('name')
+# with open('user_info.txt', 'w') as file_object:
+#     file_object.write(username)
+
+
+# with open('user_info.txt', 'r') as file_object:
+#     username = file_object.read()
+# print('hi ' + username)

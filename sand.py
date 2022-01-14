@@ -199,26 +199,25 @@
 #     print(k, ':', v)
 
 
-def make_operation(operator: str, *args: int) -> int:
-    result = 0
-    if operator == "+":
-        for num in args:
-            result += num
-            return result
-    elif operator == "-":
-        for num in args:
-            result -= num
-            return result
-    elif operator == "*":
-        result = 1
-        for num in args:
-            result = result * num
-            return result
-
-    else:
-        print("wrong value")
-
-
-if __name__ == "__main__":
-    print(make_operation("*", 98, 34, 67, 98, 67))
-
+# def make_operation(operator: str, *args: int) -> int:
+#     result = 0
+#     if operator == "+":
+#         for num in args:
+#             result += num
+#             return result
+#     elif operator == "-":
+#         for num in args:
+#             result -= num
+#             return result
+#     elif operator == "*":
+#         result = 1
+#         for num in args:
+#             result = result * num
+#             return result
+#
+#     else:
+#         print("wrong value")
+#
+#
+# if __name__ == "__main__":
+#     print(make_operation("*", 98, 34, 67, 98, 67))
