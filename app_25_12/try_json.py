@@ -4,6 +4,7 @@ import pathlib
 path_to_this_file = pathlib.Path(__file__)
 path_to_parent = path_to_this_file.parent
 path_to_json_with_users = path_to_parent.joinpath('list_of_users.json')
+
 list_of_users = {
     'user_1': 'tom',
     'user_2': 'mary',
@@ -20,8 +21,6 @@ def delete_user(user_list, id_to_delete):
     with open('list_of_users.json', 'w') as file_for_users_in_funct:
         json.dump(user_list, file_for_users_in_funct, indent=4)
     return user_list
-
-
 # если мне не нужен return?
 
 
