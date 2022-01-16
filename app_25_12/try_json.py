@@ -20,16 +20,20 @@ def delete_user(user_list, id_to_delete):
     user_list.pop(id_to_delete)
     with open('list_of_users.json', 'w') as file_for_users_in_funct:
         json.dump(user_list, file_for_users_in_funct, indent=4)
-    return user_list
-# если мне не нужен return?
+    return
+
+
+# если мне не нужен return просто пустой?
 
 
 def add_user(user_list, key_value: dict):
     user_list.update(key_value)
     with open('list_of_users.json', 'w') as file_for_users_in_funct:
         json.dump(user_list, file_for_users_in_funct, indent=4)
-    return user_list
-# если мне не нужен return?
+    return
+
+
+# если мне не нужен return просто пустой?
 
 
 def print_json(file_name):
@@ -44,7 +48,7 @@ def main():
     print_json('list_of_users.json')
     delete_user(list_of_users, 'user_1')
     add_user(list_of_users, {'user_4': 'tony'})
-    print('list_of_users.json after deleting and adding')
+    print('list_of_users.json after deletion and addition')
     print_json('list_of_users.json')
 
 
