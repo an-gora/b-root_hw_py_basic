@@ -1,7 +1,7 @@
 from datetime import date
 import calendar
 
-name = "Anastasiia"
+name = "Anastasia"
 
 
 def task_05_1(name: str) -> str:
