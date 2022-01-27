@@ -1,3 +1,7 @@
+# https://habr.com/ru/post/354046/
+#
+# просто набросать структру  кто от кого наследуется-агрегируется-композиция
+
 from abc import ABC
 from random import random
 
