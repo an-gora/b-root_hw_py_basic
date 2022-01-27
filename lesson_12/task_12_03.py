@@ -23,12 +23,15 @@ class TVController:
         self.current = self.list_of_channels[self.len - 1]
         return self.list_of_channels[self.len - 1]
 
-    def turn_channel(self, n):
-        if n <= self.len:
-            self.current = self.list_of_channels[n - 1]
-            return self.list_of_channels[n - 1]
-        else:
-            return f'amount of available channels is less than {n}'
+    def turn_channel(self, n:int):
+        try:
+            if n <= self.len:
+                self.current = self.list_of_channels[n - 1]
+                return self.list_of_channels[n - 1]
+            else:
+                return f'amount of available channels is less than {n}'
+        except: ValueError
+        return ('it is not a number')
 
     def next_channel(self):
         if self.list_of_channels.index(self.current) < self.len - 1:
@@ -61,6 +64,7 @@ def main():
     print(new_tv_controller.first_channel())
     print(new_tv_controller.last_channel())
     print(new_tv_controller.turn_channel(3))
+    print(new_tv_controller.turn_channel('ch'))
     print(new_tv_controller.current_channel())
     print(new_tv_controller.next_channel())
     print(new_tv_controller.previous_channel())
