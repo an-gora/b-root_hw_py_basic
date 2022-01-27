@@ -30,15 +30,13 @@ class TVController:
         else:
             return f'amount of available channels is less than {n}'
 
-
     def next_channel(self):
-        if self.list_of_channels.index(self.current)<self.len-1:
-            self.current = self.list_of_channels[self.list_of_channels.index(self.current)+1]
+        if self.list_of_channels.index(self.current) < self.len - 1:
+            self.current = self.list_of_channels[self.list_of_channels.index(self.current) + 1]
             return self.current
         else:
             self.current = self.list_of_channels[0]
             return self.current
-
 
     def previous_channel(self):
         if self.list_of_channels.index(self.current) == 0:
@@ -52,7 +50,7 @@ class TVController:
         return self.current
 
     def is_exist(self, looking_for: int or str):
-        if looking_for in range(1,4) or looking_for in self.list_of_channels:
+        if looking_for in range(1, 4) or looking_for in self.list_of_channels:
             return 'yes'
         else:
             return 'no'
@@ -70,5 +68,6 @@ def main():
     print(new_tv_controller.is_exist(3))
     print(new_tv_controller.is_exist('BBBBS'))
 
-def __name__ == '__main__':
+
+if __name__ == '__main__':
     main()
