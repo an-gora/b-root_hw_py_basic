@@ -5,13 +5,14 @@ class Engine:
 
 class Car:
     def __init__(self, max_speed, capacity):
-        self.average_speed = 0,4 * max_speed
+        self.average_speed = 0.4 * max_speed
         self.engine = Engine(capacity)
 
 
 delorean = Car(250, 4)
 print(type(delorean))
 print(type(delorean.engine))
+print(delorean.average_speed)
 
 # new_engine = Engine(5)
 # print(type(new_engine))
