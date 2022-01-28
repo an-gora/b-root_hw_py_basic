@@ -1,23 +1,20 @@
 class CustomException(Exception):
     def __init__(self, msg):
         self.msg = msg
-        file = open('logging.txt', 'w')
-        file.write(msg)
-        # with open(r"C:\otus.txt", "w") as file:
-        #     for line in lines:
-        #         file.write(line + '\n')
+        # file = open('logging.txt', 'w')
+        # file.write(msg)
+        with open('my_file.txt', 'a' /n) as file_object:
+            file_object.write(self.msg)
 
 
-a = input('Input integer: ')
-
-try:
-    a = int(a)
-    if a < 0:
-        raise CustomException('You give negative!')
-except ValueError:
-    print("Error type of value!")
-except CustomException as msg:
-    print(msg)
+for i in range(1, 10):
+    try:
+        if i % 2 == 0:
+            raise CustomException('Item should not be even ')
+    except ValueError:
+        print("Error type of value!")
+    except CustomException as msg:
+        print(msg)
 
 
 # class MyError(Exception):
