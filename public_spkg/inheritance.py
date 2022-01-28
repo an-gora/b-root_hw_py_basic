@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import inspect
 
+ДОПИСАТЬ НАСЛЕДОВАНИЕ ОТ 2х классов!!
 
 class Vehicle(ABC):
     @abstractmethod
@@ -25,7 +26,6 @@ class MTBike(Bike):
     def __init__(self, model, type_of_riding: str):
         super().__init__(model)
         self.type_of_riding = type_of_riding
-        self.total_driven = 0
 
 
 class OneHorseOpenSleigh(Vehicle):
@@ -42,7 +42,7 @@ class OneHorseOpenSleigh(Vehicle):
 
 class Car(Vehicle):
 
-    def __init__(self, model: object) -> object:
+    def __init__(self, model):
         self.model = model
         self.total_driven = 0
 
@@ -55,8 +55,8 @@ class Car(Vehicle):
 # s = new_car.move(100, 3)
 # print(s)
 
-# new_mtb = MTBike('model', 'type')
 # метод класса родителя
+# new_mtb = MTBike('model', 'type')
 # distance = new_mtb.move(30, 2)
 # print(distance)
 
