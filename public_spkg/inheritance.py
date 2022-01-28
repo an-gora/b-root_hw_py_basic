@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import inspect
 
 
 class Vehicle(ABC):
@@ -26,10 +27,6 @@ class MTBike(Bike):
         self.type_of_riding = type_of_riding
         self.total_driven = 0
 
-    def move(self, speed, time):
-        self.total_driven += speed * time
-        return self.total_driven
-
 
 class OneHorseOpenSleigh(Vehicle):
     def __init__(self, color):
@@ -53,11 +50,20 @@ class Car(Vehicle):
         self.total_driven += speed * time
         return self.total_driven
 
-
+#вызов переопределенного метода абстр родителя
 # new_car = Car('bla')
 # s = new_car.move(100, 3)
 # print(s)
 
-new_mtb = MTBike('model', 'type')
-s = new_mtb.move(30, 3)
-print(s)
+# new_mtb = MTBike('model', 'type')
+# метод класса родителя
+# distance = new_mtb.move(30, 2)
+# print(distance)
+
+# print('класс объекта')
+# print(type(new_mtb))
+# print('класс родителя')
+# print(type(new_mtb).__bases__)
+# print('все родители')
+# print(inspect.getmro(type(new_mtb)))
+
