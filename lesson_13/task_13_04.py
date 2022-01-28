@@ -3,8 +3,8 @@ class CustomException(Exception):
         self.msg = msg
         # file = open('logging.txt', 'w')
         # file.write(msg)
-        with open('my_file.txt', 'a' /n) as file_object:
-            file_object.write(self.msg)
+        with open('logs.txt', 'a') as file_object:
+            file_object.write(self.msg + '\n')
 
 
 for i in range(1, 10):
