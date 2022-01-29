@@ -10,6 +10,6 @@ class Car:
 
 
 delorean = Car(250, 4)
-# print(type(delorean))
+
 print(delorean.engine.hourly_smthg)
 
