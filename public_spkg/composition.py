@@ -8,7 +8,6 @@ class Car:
         self.average_smthg = 0, 4 * a
         self.engine = Engine(b)
 
-
 delorean = Car(250, 4)
 
 print(delorean.engine.hourly_smthg)

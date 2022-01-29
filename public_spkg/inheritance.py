@@ -34,7 +34,7 @@ class Car(Vehicle):
         self.total_driven += speed * time
         return self.total_driven
 
-class Monster1(MTBike, Car):
+class Monster1(MTBike):
     def __init__(self, color, model, type_of_riding: str):
         super().__init__(model, type_of_riding)
         self.color = color
@@ -48,9 +48,9 @@ def print_mro(T):
     print(*[c.__name__ for c in T.mro()], sep=' -> ')
 
 # метод класса родителя
-new_mtb = MTBike('model', 'type')
-distance = new_mtb.move(30, 2)
-print(distance)
+# new_mtb = MTBike('model', 'type')
+# distance = new_mtb.move(30, 2)
+# print(distance)
 
 # new_mtb1 = MTBike('model', 'type')
 # print('класс объекта')
@@ -60,7 +60,7 @@ print(distance)
 # print('все родители')
 # print(inspect.getmro(type(new_mtb1)))
 
-# #method resolution order / порядок разрешения метода
-# print_mro(Monster1)
-# print_mro(Monster2)
+# method resolution order / порядок разрешения метода
+print_mro(Monster1)
+print_mro(Monster2)
 
