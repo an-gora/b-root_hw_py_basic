@@ -1,7 +1,3 @@
-# https://habr.com/ru/post/354046/
-#
-# просто набросать структру  кто от кого наследуется-агрегируется-композиция
-
 from abc import ABC
 from random import random
 
@@ -10,14 +6,14 @@ class Gun:
     def __init__(self, caliber: int, barrel_lenght: int):
         self.__caliber = caliber
         self.__barrel_lenght = barrel_lenght
-    def ger_calliber(self):
-        return self.__caliber
+    def get_calliber(self):
+        ...
     def is_on_target(self, dice):
-        return self.__barrel_lenght+dice>100
+        ...
 
 
 class Ammo(ABC):
-    def __init__(self, ammo_type:str, Gun):
+    def __init__(self, ammo_type:str, gun):
         ...
     def get_damage(self):
         ...
@@ -34,27 +30,27 @@ class HeCartridge(Ammo):
     def __new__(self, ammo_type='фугасный'):
         self.ammo_type = ammo_type
     def get_penetration(self):
-        return self.gun.ger_calliber(self)
+        return self.gun.get_calliber(self)
     def get_damage(self):
-        return self.gun.ger_calliber()*3
+        return self.gun.get_calliber() * 3
 
 class HeatCartridge(Ammo):
     # def __init__(self, ammo_type = 'кумулятивный'):
     def __new__(self, ammo_type='кумулятивный'):
         self.ammo_type = ammo_type
     def get_damage(self):
-        return self.gun.ger_calliber()*0.5
+        return self.gun.get_calliber() * 0.5
     def get_penetration(self):
-        return self.gun.ger_calliber(self)
+        return self.gun.get_calliber(self)
 
 class ApCartridge(Ammo):
     # def __init__(self, ammo_type = 'подкалиберный'):
     def __new__(self, ammo_type = 'подкалиберный'):
         self.ammo_type = ammo_type
     def get_damage(self):
-        return self.gun.ger_calliber()*0.3
+        return self.gun.get_calliber() * 0.3
     def get_penetration(self):
-        return self.gun.ger_calliber(self)
+        return self.gun.get_calliber(self)
 
 class Armour(ABC):
     def __init__(self, thickness: int, type:str):

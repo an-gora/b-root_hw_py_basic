@@ -1,18 +1,17 @@
 class Engine:
-    def __init__(self, capacity):
-        self.hourly_consumption = 2*capacity
+    def __init__(self, c):
+        self.hourly_smth = 2 * c
 
 
 class Car:
-    def __init__(self, a, b):
-        self.average_smthg = 0.4 * a
-        self.engine = Engine(b)
+    def __init__(self, a, b, some_engine):
+        self.average_smthg = 0.4 * a + b
+        self.engine = some_engine
 
 
-delorean = Car(250, 4)
-print(type(delorean))
-print(type(delorean.engine))
-print(delorean.average_smthg)
+engine = Engine(15)
+delorean = Car(250, 4, engine)
+print(delorean.engine.hourly_smth)
 
-# new_engine = Engine(5)
-# print(type(new_engine))
+
+

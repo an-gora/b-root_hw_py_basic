@@ -9,7 +9,6 @@ class Vehicle(ABC):
     def move(self, speed, time):
         ...
 
-
 class Bike(Vehicle):
     def __init__(self, model: str):
         self.model = model
@@ -27,7 +26,6 @@ class MTBike(Bike):
 
 
 class Car(Vehicle):
-
     def __init__(self, model):
         self.model = model
         self.total_driven = 0
@@ -36,32 +34,33 @@ class Car(Vehicle):
         self.total_driven += speed * time
         return self.total_driven
 
-class Monst1(MTBike, Car):
+class Monster1(MTBike, Car):
     def __init__(self, color, model, type_of_riding: str):
         super().__init__(model, type_of_riding)
         self.color = color
         self.total_driven = 0
 
-class Monst2(Car, MTBike):
+class Monster2(Car, MTBike):
     def __init__(self, model):
         super().__init__(model)
 
-
-
-#вызов переопределенного метода абстр родителя
-# new_car = Car('bla')
-# s = new_car.move(100, 3)
-# print(s)
+def print_mro(T):
+    print(*[c.__name__ for c in T.mro()], sep=' -> ')
 
 # метод класса родителя
-# new_mtb = MTBike('model', 'type')
-# distance = new_mtb.move(30, 2)
-# print(distance)
+new_mtb = MTBike('model', 'type')
+distance = new_mtb.move(30, 2)
+print(distance)
 
+# new_mtb1 = MTBike('model', 'type')
 # print('класс объекта')
-# print(type(new_mtb))
+# print(type(new_mtb1))
 # print('класс родителя')
-# print(type(new_mtb).__bases__)
+# print(type(new_mtb1).__bases__)
 # print('все родители')
-# print(inspect.getmro(type(new_mtb)))
+# print(inspect.getmro(type(new_mtb1)))
+
+# #method resolution order / порядок разрешения метода
+# print_mro(Monster1)
+# print_mro(Monster2)
 
