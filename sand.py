@@ -47,3 +47,17 @@ def filter_by_name():
                   f'released at {year}\n'
                   f'genre is {genre}\n'
                   f'rating is {rating}')
+
+def filter_by_name():
+    movie = input('what movie are you looking for? ')
+    has_such_movie = []
+    for k_1 in list_of_media.keys():
+        mydict = list_of_media[k_1]
+        if ([v for k, v in mydict.items() if k == 'title' and v == movie]):
+            has_such_movie.append(mydict)
+        else:
+            continue
+    if has_such_movie:
+        print(f'here is info about {movie} movie: \n {mydict}')
+    else:
+        print(f'hhhmmmm...seems here is no movie with name {movie}')

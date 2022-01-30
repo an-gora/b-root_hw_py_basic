@@ -1,6 +1,3 @@
-from typing import Any
-
-
 class Product:
     def __init__(self, type_of_product: str, name: str, price: int):
         self.type_of_product = type_of_product
@@ -30,9 +27,9 @@ class ProductStore:
             return f'{k}. In this shop price and amount {v}'
 
     def get_product_info(self, product_name):
-        for k, v in self.all_products.items():
+        for k,v in self.all_products.items():
             if k == product_name:
-                return k, v
+              return k, v
 
 
 p = Product('Sport', 'Football T-Shirt', 100)
