@@ -5,6 +5,8 @@
 
 class Mathematician:
 
+    pass
+
     def square_nums(self,list_of_int:list):
         list_of_square = []
         for this_int in list_of_int:
