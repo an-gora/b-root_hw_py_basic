@@ -4,7 +4,7 @@ class Product:
         self.name = name
         self.price = price
 
-    def __str__(self):
+    def __repr__(self):
         return f'type of product - {self.type_of_product}, name - {self.name}, original price - {self.price}'
 
 class ProductStore:
@@ -21,11 +21,15 @@ class ProductStore:
     # def get_income(self):
     def get_all_products(self):
         for k,v in self.all_products.items():
-            print (k, v)
-        # return self.all_products
-    # def get_product_info(self, product_name):
+            return f'{k}. in this shop price and amount {v}'
+
+    def get_product_info(self, product_name):
+        for k, v in self.all_products.items():
+            if k[self.name] == product_name:
+                return k, v
 
 p = Product('Sport', 'Football T-Shirt', 100)
 s = ProductStore('new store')
 s.add(p, 10)
-s.get_all_products()
+# print(s.get_all_products())
+print(s.get_product_info('Football T-Shirt'))
