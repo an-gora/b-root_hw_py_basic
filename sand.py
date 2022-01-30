@@ -34,3 +34,16 @@
 
 a = float(0)
 print(a)
+
+
+def filter_by_name():
+    mymovie = input('what movie are you looking for? ')
+    for movie, movieinfo in list_of_media.items():
+        if movieinfo['title'] == mymovie:
+            year = movieinfo['year']
+            genre = movieinfo['genre']
+            rating = movieinfo['rating']
+            print(f'Here is info about movie {mymovie}: \n'
+                  f'released at {year}\n'
+                  f'genre is {genre}\n'
+                  f'rating is {rating}')
