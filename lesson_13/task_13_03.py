@@ -18,22 +18,25 @@ class ProductStore:
         print(f'{product.name} in amount of {amount} was added')
 
     # def set_discount(self, identifier, percent, identifier_type=’name’):
-    # def sell_product(self, product_name, amount_to_sell):
-    #     for k, v in self.all_products.items():
-    #         if k == product_name:
-    #             v(amount) = v(amount)-amount_to_sell  # # def get_income(self):
+    def sell_product(self, product_name, amount_to_sell):
+        for k, v in self.all_products.items():
+            if k == product_name:
+                v[-1] = v[-1] - amount_to_sell
+
     def get_all_products(self):
         for k, v in self.all_products.items():
-            return f'{k}. In this shop price and amount {v}'
+            return f'{k}. In this shop price {v[2]} and amount {v[-1]}'
 
     def get_product_info(self, product_name):
-        for k,v in self.all_products.items():
+        for k, v in self.all_products.items():
             if k == product_name:
-              return k, v
+                return k, v[-1]
 
 
 p = Product('Sport', 'Football T-Shirt', 100)
 s = ProductStore()
 s.add(p, 10)
-print(s.get_all_products())
+# print(s.get_all_products())
 print(s.get_product_info('Football T-Shirt'))
+s.sell_product('Football T-Shirt', 5)
+print(s.get_all_products())
