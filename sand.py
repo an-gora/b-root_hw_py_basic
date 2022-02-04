@@ -1,0 +1,1 @@
+ValueError: This function works only with exp > 0
