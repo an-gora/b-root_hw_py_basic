@@ -7,4 +7,4 @@ def is_palindrome(looking_str: str):
         else:
             return False
 
-print(is_palindrome('lolol'))
+print(is_palindrome('lolaaaaawol'))
