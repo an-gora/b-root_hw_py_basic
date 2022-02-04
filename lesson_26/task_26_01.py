@@ -26,21 +26,17 @@ class Stack:
     def __str__(self):
         return self.__repr__()
 
+    def reverse(self, string_to_reverse:str):
+        n = len(string_to_reverse)
+        reversed_string = ''
+        for i in range(0, n):
+            self._items.append(string_to_reverse[i])
+        for i in range(0, n):
+            reversed_string += self._items.pop()
+        return reversed_string
 
-if __name__ == "__main__":
-    s = Stack()
 
-    print(s.is_empty())
-    s.push(4)
-    s.push('dog')
-    print(s.peek())
-    s.push(True)
-    print(s.size())
-    print(s.is_empty())
-    s.push(8.4)
-    print(s.pop())
-    print(s.pop())
-    print(s.size())
-    print(s)
-    print(s.pop())
-    print(s)
+s = Stack()
+string_to_rvrs = 'implementation of Stack'
+print(s.reverse(string_to_rvrs))
+
