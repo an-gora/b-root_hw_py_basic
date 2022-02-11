@@ -1,5 +1,5 @@
 def is_palindrome(looking_str: str):
-    if len(looking_str) < 1:
+    if len(looking_str) <=1:
         return True
     else:
         if looking_str[0] == looking_str[-1]:
@@ -8,3 +8,5 @@ def is_palindrome(looking_str: str):
             return False
 
 print(is_palindrome('lolaaaaawol'))
+print(is_palindrome('lool'))
+print(is_palindrome('radar'))

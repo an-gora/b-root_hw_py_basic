@@ -37,18 +37,17 @@ class Stack:
             reversed_string += self._items.pop()
         return reversed_string
 
-    def get_from_stack(self, element):
-        if element in self._items:
-            self._items.remove(element)
-        else:
-            raise ValueError(f'{element} is not found')
+    # def get_from_stack(self, element):
+    #     if element in self._items:
+    #         self._items.remove(element)
+    #     else:
+    #         raise ValueError(f'{element} is not found')
 
 
 s= Stack()
 s.push(1)
 s.push(3)
 s.push(5)
-s.push(8)
 print(s)
 s.get_from_stack(3)
 print(s)

@@ -1,17 +1,7 @@
-# def sum_of_digits(digit_string: str) -> int:
-#     """
-#     >>> sum_of_digits('26') == 8
-#     True
-#
-#     >>> sum_of_digits('test')
-#     ValueError("input string must be digit string")
-
-
 def sum_of_digits(digit_string: str) -> int:
-    if int(digit_string) <=9:
-        return digit_string
-    return (int(digit_string))%10 + sum_of_digits((int(digit_string)//10))
+    if digit_as_int := int(digit_string) <= 9:
+        return digit_as_int
+    return (int(digit_string)) % 10 + sum_of_digits((str(int(digit_string) // 10)))
 
-
-print(sum_of_digits('123456'))
-
+#проверку на не число - райзнуть эксепшин, пустая строка - это 0 или не позволительно? 0 из реализации марии
+print(sum_of_digits('12'))

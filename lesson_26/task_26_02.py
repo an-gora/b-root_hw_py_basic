@@ -23,4 +23,4 @@ def check_braces(sentence_to_check: str):
         return False
 
 
-print(check_braces('({[)})'))
+print(check_braces('()'))
