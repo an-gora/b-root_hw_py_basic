@@ -43,6 +43,20 @@ def build_parse_tree(math_exp: str) -> BinaryTree:
             stack.push(current_tree)
             current_tree = current_tree.get_right_child()
 
+#try with and, or
+        elif i.lower() in ['and', 'or']:
+            current_tree.set_root_val(i)
+            current_tree.insert_right('')
+            stack.push(current_tree)
+            current_tree = current_tree.get_right_child()
+
+# try with not
+        elif i.lower() in ['not']:
+            current_tree.set_root_val(i)
+            current_tree.insert_right('')
+            stack.push(current_tree)
+            current_tree = current_tree.get_right_child()
+
         elif i == ')':
             current_tree = stack.pop()
 
@@ -75,7 +89,6 @@ def print_exp(tree: BinaryTree) -> str:
     s_val = ""
     if tree:
         s_val = '(' + print_exp(tree.get_left_child())
-        # s_val = '(' + print_exp(tree.get_left_child()).removeprefix('(').removesuffix(')')
         s_val = s_val + str(tree.get_root_val())
         s_val = s_val + print_exp(tree.get_right_child()) +')'
     return s_val
