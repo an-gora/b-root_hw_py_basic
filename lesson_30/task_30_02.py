@@ -1,5 +1,5 @@
 import operator
-from typing import Generic, TypeVar, List
+from typing import Generic, TypeVar, List, Callable
 
 from oop_tree import BinaryTree
 
@@ -23,9 +23,51 @@ class Stack(Generic[T]):
     def __repr__(self) -> str:
         return repr(self._container)
 
+def parse_exp_to_tokens(math_exp:str) -> list:
+    tokens_list = []
+    char: str = ''
+    for sign in math_exp:
+        if not sign.isspace():
+            if sign not in ['(', ')']:
+                if char == '':
+                    char = sign
+                else:
+                    if char.title() in ['True', 'False']:
+                        tokens_list.append(char.title())
+                        char = ''
+                        char += sign
+                    if char.lower() in ['and', 'or', 'not']:
+                        tokens_list.append(char.lower())
+                        char = ''
+                        char += sign
+                    else:
+                        char = char + sign
+            else:
+                if char.title() in ['True', 'False']:
+                    tokens_list.append(char.title())
+                if char.lower() in ['and', 'or', 'not']:
+                    tokens_list.append(char.lower())
+                tokens_list.append(sign)
+                char = ''
+        else:
+            if char.title() in ['True', 'False']:
+                tokens_list.append(char.title())
+                char = ''
+            if char.lower() in ['and', 'or', 'not']:
+                tokens_list.append(char.lower())
+                char = ''
+            char = ''
+    return tokens_list
+
+def normalize_token(token: str):
+    token_dict = {'True': True,
+                  'False': False}
+    return token_dict.get(token, token)
+
+
 
 def build_parse_tree(math_exp: str) -> BinaryTree:
-    tokens_list = math_exp.split()
+    tokens_list = parse_exp_to_tokens(math_exp)
     stack = Stack()
     tree: BinaryTree = BinaryTree('')
     stack.push(tree)
@@ -37,32 +79,33 @@ def build_parse_tree(math_exp: str) -> BinaryTree:
             stack.push(current_tree)
             current_tree = current_tree.get_left_child()
 
-        elif i in ['+', '-', '*', '/']:
-            current_tree.set_root_val(i)
-            current_tree.insert_right('')
-            stack.push(current_tree)
-            current_tree = current_tree.get_right_child()
+        # elif i in ['+', '-', '*', '/']:
+        #     current_tree.set_root_val(i)
+        #     current_tree.insert_right('')
+        #     stack.push(current_tree)
+        #     current_tree = current_tree.get_right_child()
 
 #try with and, or
-        elif i.lower() in ['and', 'or']:
+        elif i.lower() in ['and', 'or', 'not']:
             current_tree.set_root_val(i)
             current_tree.insert_right('')
             stack.push(current_tree)
             current_tree = current_tree.get_right_child()
 
 # try with not
-        elif i.lower() in ['not']:
-            current_tree.set_root_val(i)
-            current_tree.insert_right('')
-            stack.push(current_tree)
-            current_tree = current_tree.get_right_child()
+#         elif i.lower() in ['not']:
+#             current_tree.set_root_val(i)
+#             current_tree.insert_right('')
+#             stack.push(current_tree)
+#             current_tree = current_tree.get_right_child()
 
         elif i == ')':
             current_tree = stack.pop()
 
-        elif i not in ['+', '-', '*', '/', ')']:
+        elif i not in ['and', 'or', 'not']:
             try:
-                current_tree.set_root_val(int(i))
+                #нормализовать i к бул
+                current_tree.set_root_val(normalize_token(i))
                 parent = stack.pop()
                 current_tree = parent
 
@@ -73,7 +116,9 @@ def build_parse_tree(math_exp: str) -> BinaryTree:
 
 
 def evaluate(parse_tree):
-    operates = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv}
+    # operates: dict[str, Callable] = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv}
+    operates: dict[str, Callable] = {'and': operator.and_, 'or': operator.or_, 'not': operator.not_}
+
 
     left_c = parse_tree.get_left_child()
     right_c = parse_tree.get_right_child()
@@ -81,7 +126,13 @@ def evaluate(parse_tree):
     if left_c and right_c:
         fn = operates[parse_tree.get_root_val()]
         return fn(evaluate(left_c), evaluate(right_c))
+    elif left_c:
+        return evaluate(left_c)
+    elif right_c:
+        fn = operates[parse_tree.get_root_val()]
+        return fn(evaluate(right_c))
     else:
+        # print(parse_tree.get_root_val())
         return parse_tree.get_root_val()
 
 
@@ -95,13 +146,10 @@ def print_exp(tree: BinaryTree) -> str:
 
 
 if __name__ == "__main__":
-    pt: BinaryTree = build_parse_tree("( ( 10 + 5 ) * 3 )")
-    print(evaluate(pt))
-    print()
-    pt.pre_order()
-    print()
-    pt.post_order()
-    print()
-    pt.in_order()
+    # expression = '((TRUE AND FALSE) OR TRUE )'
+    expression = '(not (not False))'
+    pt: BinaryTree = build_parse_tree(expression)
     print("__")
+    print(evaluate(pt))
+    # print(expression)
     print(print_exp(pt))

@@ -1,31 +1,38 @@
-# ptl = '( ( 10 + 5 ) * 3 )'
-# print(type(ptl.split()))
-# print(ptl.split())
-#
-# s = "((10    +5)*3       )"
-#
-#
-# fplist = []
-# number = ''
-# for symbol in s:
-#         if symbol != ' ':
-#             if symbol not in ['(', '+', '-', '*', '/', ')']:
-#                 if number == '':
-#                     number = symbol
-#                 else:
-#                     number = number + symbol
-#             else:
-#                 if number != '':
-#                     fplist.append(number)
-#                 fplist.append(symbol)
-#                 number = ''
-#         else:
-#             # symbol=''
-#             continue
-#
-# print(type(fplist))
-# print(fplist)
+math_exp = '((TRUE AND FALSE) OR TRUE )'
 
-a = 5
-b = not(a)
-print(b)
+
+tokens_list = []
+char: str = ''
+for sign in math_exp:
+    if not sign.isspace():
+        if sign not in ['(', ')']:
+            if char == '':
+                char = sign
+            else:
+                if char.title() in ['True', 'False']:
+                    tokens_list.append(char.title())
+                    char = ''
+                    char+= sign
+                if char.lower() in ['and', 'or', 'not']:
+                    tokens_list.append(char.lower())
+                    char = ''
+                    char+= sign
+                else:
+                    char = char + sign
+        else:
+            if char.title() in ['True', 'False']:
+                tokens_list.append(char.title())
+            if char.lower() in ['and', 'or', 'not']:
+                tokens_list.append(char.lower())
+            tokens_list.append(sign)
+            char = ''
+    else:
+        if char.title() in ['True', 'False']:
+            tokens_list.append(char.title())
+            char = ''
+        if char.lower() in ['and', 'or', 'not']:
+            tokens_list.append(char.lower())
+            char = ''
+        char = ''
+
+print(tokens_list)

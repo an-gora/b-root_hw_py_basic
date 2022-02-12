@@ -98,8 +98,8 @@ def print_exp(tree: BinaryTree) -> str:
 
 
 if __name__ == "__main__":
-    # pt: BinaryTree = build_parse_tree("( ( 10 + 5 ) * 3 )")
-    pt: BinaryTree = build_parse_tree("((10    +5)*3)")
+    pt: BinaryTree = build_parse_tree("( ( 10 + 5 ) * 3 )")
+    # pt: BinaryTree = build_parse_tree("((10    +5)*3)")
     print(evaluate(pt))
     print()
     pt.pre_order()
