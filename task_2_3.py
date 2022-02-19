@@ -1,8 +1,7 @@
-# Write a program, which has two print statements
-# to print the following text (capital letters “O” and “H”, made from “#” symbols):
-
-print('\n', '#' * 9, '\n', '#', '\t\t', '#', '\n', '#', '\t\t', '#',
-      '\n', '#', '\t\t', '#', '\n', '#' * 9)
-
-print('\n', '#', '\t\t', '#', '\n', '#', '\t\t', '#', '\n', '#' * 9, '\n',
-      '#', '\t\t', '#', '\n', '#', '\t\t', '#')
+alpha = ' abcdefghijklmnopqrstuvwxyz'
+n = int(input())
+s = input().strip()
+res = ''
+for c in s:
+    res += alpha[(alpha.index(c) + n) % len(alpha)]
+print('Result: "' + res + '"')

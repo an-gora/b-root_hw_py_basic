@@ -1,7 +1,7 @@
 import socket
 
 HOST = '127.0.0.1'  # Standard loop-back interface address (localhost)
-PORT = 65421  # Port to listen on (non-privileged ports are > 1023)
+PORT = 65428  # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server.bind((HOST, PORT))
@@ -16,8 +16,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
             alphabet = ' abcdefghijklmnopqrstuvwxyz'
             res = ''
             for char in data_to_cipher:
-                res += alphabet[(alphabet.index(char) + data) % len(alphabet)]
-            print('Result: "' + res + '"')
+                # res += alphabet[(alphabet.index(char) + 4) % len(alphabet)]
+                res += alphabet[(alphabet.index(char) + int.from_bytes(data, byteorder='big', signed=True)) % len(alphabet)]
             if not data:
                 break
-            conn.sendall(res)
+            conn.sendall(res.encode('utf-8'))
