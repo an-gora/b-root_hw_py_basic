@@ -1,8 +1,8 @@
 import socket
-import string
 from parsing import to_parse
-from cryptographer import to_encrypt
+from encryptor import to_encrypt
 from decoder import to_decode
+from common_data import HOST, PORT, FLAG_TO_CIPHER, FLAG_TO_DECODE
 
 # Create a TCP/IP socket
 
@@ -10,7 +10,7 @@ from decoder import to_decode
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ('localhost', 65432)
+server_address = (HOST, PORT)
 print('starting up on {} port {}'.format(*server_address))
 server.bind(server_address)
 
@@ -30,14 +30,14 @@ while True:
             print('received {!r}'.format(data))
             if data:
                 flag, key, data_for_cipher = to_parse(data)
-                if flag == 'i_want_to_cipher'
+                if flag == FLAG_TO_CIPHER:
                     ciphered_data = to_encrypt(key, data_for_cipher)
                     print('sending data back to the client')
                     connection.sendall(ciphered_data.encode('utf-8'))
-                elif:
-                    ciphered_data = to_encrypt(key, data_for_cipher)
+                elif flag == FLAG_TO_DECODE:
+                    decoded_data = to_decode(key, data_for_cipher)
                     print('sending data back to the client')
-                    connection.sendall(ciphered_data.encode('utf-8'))
+                    connection.sendall(decoded_data.encode('utf-8'))
 
             else:
                 print('no data from', client_address)

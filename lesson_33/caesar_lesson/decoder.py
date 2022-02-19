@@ -6,7 +6,7 @@ ALPHABET: str = ''.join([
     string.ascii_uppercase,
     ])
 
-#обьединить decode-crypto??? через operator из парсера математического выражения
+#обьединить decode-crypto??? через operator из парсера математического выражения из 30 parse tree
 
 def to_decode(key: int, data_to_decode: str)->str:
     ciphered_data_as_list: list[str] = []
