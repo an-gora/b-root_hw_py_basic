@@ -1,7 +1,8 @@
 import socket
 from parsing import to_parse
-from encryptor import to_encrypt
-from decoder import to_decode
+# from encryptor import to_encrypt
+# from decoder import to_decode
+from decod_encrypt import to_proccess
 from common_data import HOST, PORT, FLAG_TO_CIPHER, FLAG_TO_DECODE
 
 # Create a TCP/IP socket
@@ -31,11 +32,11 @@ while True:
             if data:
                 flag, key, data_for_cipher = to_parse(data)
                 if flag == FLAG_TO_CIPHER:
-                    ciphered_data = to_encrypt(key, data_for_cipher)
+                    ciphered_data = to_proccess(key, data_for_cipher, False)
                     print('sending data back to the client')
                     connection.sendall(ciphered_data.encode('utf-8'))
                 elif flag == FLAG_TO_DECODE:
-                    decoded_data = to_decode(key, data_for_cipher)
+                    decoded_data = to_proccess(key, data_for_cipher, True)
                     print('sending data back to the client')
                     connection.sendall(decoded_data.encode('utf-8'))
 
