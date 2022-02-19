@@ -1,7 +1,7 @@
-alpha = ' abcdefghijklmnopqrstuvwxyz'
+alphabet = ' abcdefghijklmnopqrstuvwxyz'
 n = int(input())
-s = input().strip()
+s = input()
 res = ''
-for c in s:
-    res += alpha[(alpha.index(c) + n) % len(alpha)]
+for char in s:
+    res += alphabet[(alphabet.index(char) + n) % len(alphabet)]
 print('Result: "' + res + '"')
