@@ -9,27 +9,27 @@ class Author:
         self.country = country
         self.birthday = birthday
         self.books = books
+
     def __repr__(self):
         return f'author - {self.name}, country - {self.country}, birthday - {self.birthday}, books - {self.books}'
+
     def __str__(self):
         return f'author - {self.name}, country - {self.country}, birthday - {self.birthday}, books - {self.books}'
 
 
 class Book:
-
     amount_of_books = 0
-
-    def __init__(self, name, year, author):
+    def __init__(self, name, year, book_author):
         self.title = name
         self.year = year
-        self.author = author
+        self.book_author = book_author
         Book.amount_of_books +=1
 
     def __repr__(self):
-        return f'title - {self.title}, year - {self.year}, author - {self.author.name}'
+        return f'title - {self.title}, year - {self.year}, author - {self.book_author.name}'
 
     def __str__(self):
-        return f'title - {self.title}, year - {self.year}, author - {self.author.name}'
+        return f'title - {self.title}, year - {self.year}, author - {self.book_author.name}'
 
 # - new_book(name: str, year: int, author: Author) - returns an instance of Book class and adds the book to the books list for the current library.
 # - group_by_author(author: Author) - returns a list of all books grouped by the specified author
@@ -47,12 +47,14 @@ class Library:
     def __str__(self):
         return f'books - {self.books}, authors - {self.authors}'
 
-    def new_book(self, ):
-
+    def new_book(self):
+        pass
 
     def group_by_author(self):
+        pass
 
     def group_by_year(self):
+        pass
 
 
 author = Author('franko', 'ukraine', 1812, ['book1', 'book2', 'book3'])
