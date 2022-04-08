@@ -54,11 +54,11 @@ class ProductStore:
     def sell_product(self, product_name, amount):
         for k, v in self.all_products.items():
             if k == product_name:
-                    if v.amount >= amount:
-                        v.amount = v.amount - amount
-                        self.income = amount*v.store_price
-                    else:
-                        raise Exception('not enough to sell')
+                if v.amount >= amount:
+                    v.amount = v.amount - amount
+                    self.income = amount*v.store_price
+                else:
+                    raise Exception('not enough to sell')
 
 
 
