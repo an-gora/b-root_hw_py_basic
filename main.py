@@ -1,6 +1,5 @@
 import pickle
 import random
-import uuid
 
 
 class Equipment:
@@ -59,7 +58,7 @@ class Human:
     def take_equipment(self, equipment):
         self.list_of_current_equipment.append(equipment)
 
-    def return_equipment(self, base):
+    def return_equipment(self, base: 'SkiBase'):
         temp_list = [equipment for equipment in self.list_of_current_equipment if equipment.base == base]
         for eqp in temp_list:
             self.list_of_current_equipment.remove(eqp)
@@ -160,4 +159,3 @@ if __name__ == '__main__':
     print(new_base.equipment_list)
     print(petro.list_of_current_equipment)
     new_base.store()
-
