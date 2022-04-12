@@ -19,8 +19,9 @@ class WowClass:
         return result
 
     def __call__(self, function):
+        @wraps(function)
         def wrapper():
-            print(function()+next(self.my_generator()))
+            return(function()+next(self.my_generator()))
 
         return wrapper
 
