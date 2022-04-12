@@ -8,11 +8,11 @@ class Equipment:
     rate_of_crash = 0.1
     luck = 0
 
-    def __init__(self, basic_price):
+    def __init__(self, basic_price: float):
         self.basic_price = basic_price
-        self.id = uuid.uuid4()
+        # self.id = uuid.uuid4()
         self.current_price = self.basic_price
-        self.base = 0
+        self.base = None
 
     def __str__(self):
         return f'{self.__class__.__name__} - {self.basic_price}$/{self.current_price}$'
@@ -22,7 +22,7 @@ class Equipment:
     def is_it_luck(self):
         probability_of_crash = random.randint(1, 100)
         flag = probability_of_crash > self.luck
-        print('ok' if flag else 'crash')
+        # print('ok' if flag else 'crash')
         return flag
 
     def price_of_current_roll(self):
@@ -51,9 +51,9 @@ class Helmet(Equipment):
 
 class Human:
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
-        self.id = uuid.uuid4()
+        # self.id = uuid.uuid4()
         self.list_of_current_equipment = []
 
     def take_equipment(self, equipment):
@@ -88,9 +88,9 @@ class Lift:
 
 class SkiBase:
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
-        self.id = uuid.uuid4()
+        # self.id = uuid.uuid4()
         self.equipment_list = []
         self.clients_list = []
 
@@ -119,7 +119,7 @@ class SkiBase:
         file.close()
 
     @classmethod
-    def restore(cls, name):
+    def restore(cls, name: str):
         try:
             file = open(f'{name}.bin', 'rb')
             l2 = pickle.load(file)
