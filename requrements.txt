@@ -2,3 +2,6 @@ aiohttp==3.8.1
 requests
 bs4
 lxml
+
+pyTelegramBotAPI==4.5.0
+python-dotenv
